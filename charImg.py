@@ -1,6 +1,12 @@
-from PIL import Image
-import argparse
+#!/usr/bin/env python3
+# -*- coding:utf-8 -*-
 
+' generate a char-img(just a group of char) from a picture'
+
+__author__ = 'fishzd'
+
+
+from PIL import Image
 
 ascii_char = list("$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~<>i!lI;:,\"^`'. ")
 input_image = Image.open(r'C:\Users\12104\OneDrive\desktop\sheep.png')

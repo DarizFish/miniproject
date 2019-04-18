@@ -1,3 +1,10 @@
+#!/usr/bin/env python3
+# -*- coding:utf-8 -*-
+
+' count the number of word in a txt file'
+
+__author__ = 'fishzd'
+
 
 import re
 

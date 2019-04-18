@@ -1,3 +1,11 @@
+#!/usr/bin/env python3
+# -*- coding:utf-8 -*-
+
+' add a message number to a head sculpture'
+
+__author__ = 'fishzd'
+
+
 #add a number to a picture
 from PIL import Image, ImageDraw, ImageFont
 head_img = Image.open(r'C:\Users\12104\OneDrive\desktop\sheep.png')

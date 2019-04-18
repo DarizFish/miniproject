@@ -1,3 +1,11 @@
+#!/usr/bin/env python3
+# -*- coding:utf-8 -*-
+
+' generate a 20 length random key for activating'
+
+__author__ = 'fishzd'
+
+
 import random
 import mysql.connector
 import redis
