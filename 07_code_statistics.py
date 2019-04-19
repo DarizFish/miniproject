@@ -55,7 +55,7 @@ if __name__ == '__main__':
     print(code_stat)
     whole_code_stat = {}
     for filename in code_stat:
-        print('Code filename:   %s' % filename)
+        print(' %s' % filename)
         for line_type in code_stat[filename]:
             print('    %s : %s' % (line_type, code_stat[filename][line_type]))
             whole_code_stat[line_type] = whole_code_stat.setdefault(line_type, 0) + code_stat[filename][line_type]
