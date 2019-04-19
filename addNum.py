@@ -1,7 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding:utf-8 -*-
 
-' add a message number to a head sculpture'
+"""add a message number
+
+
+
+
+
+    to a head sculpture"""
 
 __author__ = 'fishzd'
 
