@@ -21,18 +21,25 @@ def remove_tag(body):
     body_content3 = re.sub(r'\n\s*\n', '\n', body_content2, flags=re.MULTILINE)
     return body_content3
 
+def find_url(html):
+
+    urls = re.findall(r'<a .*?href="(.*?)".*?>.*?</a>', html, flags=re.DOTALL)
+    return urls
 
 def parse_file(file):
     with open(file, encoding='utf-8') as f:
         html = f.read()
+        urls = find_url(html)
+        res = {'url': urls}
         get_body = re.search(r'<body.*?>.*?</body>', html, re.DOTALL)
         if get_body:
             body = get_body.group()
-            return remove_tag(body)
+            res['body'] = remove_tag(body)
         else:
-            return 'there is no body in this html file'
+            res['body'] = 'there is no body in this html file'
+        return res
 
 
 if __name__ == '__main__':
     html_cont = parse_file(html_file)
-    print(html_cont)
+
