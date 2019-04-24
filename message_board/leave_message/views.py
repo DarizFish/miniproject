@@ -5,7 +5,7 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 # Create your views here.
 def index(request):
-    message_list = Message.objects.all()
+    message_list = Message.objects.all().order_by('-create_date')
     context = {
         'message_list': message_list,
     }
