@@ -9,7 +9,7 @@ def index(request):
     context = {
         'message_list': message_list,
     }
-    return render(request, 'index.html', context)
+    return render(request, 'leave_message/index.html', context)
 
 def add(request):
     print('test add func')

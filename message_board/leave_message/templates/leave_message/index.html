@@ -1,0 +1,66 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>m</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'leave_message/css/uikit.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'leave_message/css/uikit.min.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'leave_message/css/uikit.gradient.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'leave_message/css/uikit.gradient.min.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'leave_message/css/uikit.almost-flag.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'leave_message/css/uikit.almost-flag.min.css' %}"/>
+    <link rel="stylesheet" href="http://www.getuikit.net/docs/css/docs.css">
+</head>
+<body class="">
+
+<nav class="tm-navbar uk-navbar uk-navbar-attached">
+    <div class="uk-container uk-container-center">
+        <ul class="uk-navbar-nav uk-hidden-small">
+            <li class="uk-active"><a>留言板</a></li>
+        </ul>
+    </div>
+</nav>
+<div class="tm-middle uk-grid">
+    <form class="uk-form uk-form-horizontal uk-container-center" action="{% url 'message:add'  %}" method="post">
+        {% csrf_token %}
+        <div class="uk-form-row">
+            <label class="uk-form-label" for="form-h-it">name:</label>
+            <div class="uk-form-controls">
+                <input name="user" type="text" id="form-h-it" cols="60" placeholder="Text input">
+            </div>
+        </div>
+        <div class="uk-form-row">
+            <label class="uk-form-label" for="form-h-t">Content:</label>
+            <div class="uk-form-controls">
+                <textarea name="content" id="form-h-t" cols="60" rows="10" placeholder="Textarea text"></textarea>
+            </div>
+        </div>
+        <p><input class="uk-button uk-button-primary" type="submit" value="leave"></p>
+    </form>
+</div>
+{% if message_list %}
+<div>
+    {% for message in message_list %}
+    <div class="uk-width-medium-2-3 uk-container-center">
+        <article class="uk-comment">
+            <header class="uk-comment-header">
+                <img class="uk-comment-avatar" src="http://www.getuikit.net/docs/images/placeholder_avatar.svg"
+                     alt="0.0">
+                <h4 class="uk-comment-title">{{ message.user_name}}</h4>
+                <div class="uk-comment-meta">{{message.create_date}}</div>
+            </header>
+            <div class="uk-comment-body">{{ message.message_text }}</div>
+        </article>
+    </div>
+    {% endfor %}
+</div>
+
+
+{% else %}
+<p>No message.</p>
+{% endif %}
+
+</body>
+</html>
